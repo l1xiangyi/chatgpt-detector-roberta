@@ -50,7 +50,7 @@ Our dataset is sourced from HC3-English.
 
 Since there was no publicly available dataset split mentioned in the paper, we have divided the dataset into a typical 80% training set and 20% test set, with 10% of the training set reserved for validation set. 
 
-The preprocessing step is shown in ./dataset/preprocess.py. 
+The preprocessing step is shown in preprocess.py. 
 
 You just need to download the [all.jsonl](https://huggingface.co/datasets/Hello-SimpleAI/HC3/blob/main/all.jsonl) into ./dataset from [HC3-English](https://huggingface.co/datasets/Hello-SimpleAI/HC3/tree/main).
 
