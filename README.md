@@ -59,7 +59,7 @@ Please note: The sample code below assumes that your machine has a GPU that can 
 
 In this project, we reproduce the detector following [ChatGPT detector](https://huggingface.co/spaces/Hello-SimpleAI/chatgpt-detector-single), which is an open-source detector for ChatGPT.
 
-It is a Roberta for classification model with labels (0: human, 1:ChatGPT). The example reproduces code
+It is a Roberta for classification model with labels (0: human, 1:ChatGPT).
 
 If you want to train it, follow these steps:
 
