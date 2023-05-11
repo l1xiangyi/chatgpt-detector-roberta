@@ -12,7 +12,8 @@ const prompts = {
 }
 
 const fileName = "dataset/all.jsonl";
-const newFileName = `dataset/all_expanded.jsonl_${Date.now().toString()}.jsonl`;
+// const newFileName = `dataset/all_expanded.jsonl_${Date.now().toString()}.jsonl`;
+const newFileName = `dataset/all_expanded.jsonl_from_394.jsonl`;
 
 fs.readFile(fileName, 'utf8', async (err, data) => {
     if (err) {
@@ -25,27 +26,41 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
     const writeStream = fs.createWriteStream(newFileName);
     // let i = 1;
     // for (const line of lines) {
-    for (let i = 42; i < lines.length; i++) {
+    for (let i = 499; i < lines.length; i++) {
         const line = lines[i];
         if (line) {
             const jsonData = JSON.parse(line);
-    
             const question = jsonData.question;
             console.log("question " + i + ": " + question + " being generated")
 
-            const completion = await openai.createChatCompletion({
-                model: "gpt-3.5-turbo",
-                messages: [{role: "user", content: prompts['software_engineer'] + ' ' + question}],
-                temperature: 1.5,
-                max_tokens: 100,
-            });
-    
-            const contents = completion.data.choices[0].message.content;
-            jsonData.chatgpt_answers_with_SDE_prompt = contents;
-    
-            writeStream.write(JSON.stringify(jsonData) + '\n');
+            let success = false;
+            let retries = 5;
+
+            while (!success && retries > 0) {
+                try {
+                    const completion = await openai.createChatCompletion({
+                        model: "gpt-3.5-turbo",
+                        messages: [{role: "user", content: prompts['software_engineer'] + ' ' + question}],
+                        temperature: 1.5,
+                        max_tokens: 100,
+                    });
+
+                    const contents = completion.data.choices[0].message.content;
+                    jsonData.chatgpt_answers_with_SDE_prompt = contents;
+
+                    writeStream.write(JSON.stringify(jsonData) + '\n');
+                    success = true;
+                } catch (error) {
+                    console.error(`Error occurred while generating answer for question ${i}: ${error}`);
+                    retries--;
+                    if (retries === 0) {
+                        console.error(`All retries failed for question ${i}. Skipping this question.`);
+                    } else {
+                        console.log(`Retrying question ${i} (${retries} retries left)...`);
+                    }
+                }
+            }
         }
-        // i += 1;
     }
 
     writeStream.end();
