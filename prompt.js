@@ -23,7 +23,7 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
     const lines = data.split('\n');
 
     const writeStream = fs.createWriteStream(newFileName);
-  
+    let i = 1;
     for (const line of lines) {
     // for (let i = 0; i < 2; i++) {
     //     const line = lines[i];
@@ -45,6 +45,7 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
     
             writeStream.write(JSON.stringify(jsonData) + '\n');
         }
+        i += 1;
     }
 
     writeStream.end();
