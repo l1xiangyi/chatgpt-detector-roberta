@@ -15,6 +15,10 @@ const fileName = "dataset/all.jsonl";
 // const newFileName = `dataset/all_expanded.jsonl_${Date.now().toString()}.jsonl`;
 const newFileName = `dataset/all_expanded.jsonl_from_394.jsonl`;
 
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 fs.readFile(fileName, 'utf8', async (err, data) => {
     if (err) {
       console.error(err);
@@ -52,6 +56,9 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
                     success = true;
                 } catch (error) {
                     console.error(`Error occurred while generating answer for question ${i}: ${error}`);
+                    if (retries == 5) {
+                        await sleep(5000); // Sleep for 5 seconds before retrying
+                    }
                     retries--;
                     if (retries === 0) {
                         console.error(`All retries failed for question ${i}. Skipping this question.`);
