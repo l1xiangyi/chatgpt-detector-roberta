@@ -15,14 +15,22 @@ const fileName = "dataset/all.jsonl";
 // const newFileName = `dataset/all_expanded.jsonl_${Date.now().toString()}.jsonl`;
 const newFileName = `dataset/all_expanded.jsonl_from_394.jsonl`;
 
+const timestamp = Date.now();
+const logFileName = `logs_${timestamp}.txt`;
+
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function logger(message) {
+    fs.appendFileSync(logFileName, message + '\n');
+    console.log(message);
+}
+
 fs.readFile(fileName, 'utf8', async (err, data) => {
     if (err) {
-      console.error(err);
-      return;
+        logger(err);
+        return;
     }
   
     const lines = data.split('\n');
@@ -35,7 +43,7 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
         if (line) {
             const jsonData = JSON.parse(line);
             const question = jsonData.question;
-            console.log("question " + i + ": " + question + " being generated")
+            logger("question " + i + ": " + question + " being generated");
 
             let success = false;
             let retries = 5;
@@ -55,15 +63,15 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
                     writeStream.write(JSON.stringify(jsonData) + '\n');
                     success = true;
                 } catch (error) {
-                    console.error(`Error occurred while generating answer for question ${i}: ${error}`);
+                    logger(`Error occurred while generating answer for question ${i}: ${error}`);
                     if (retries == 5) {
                         await sleep(5000); // Sleep for 5 seconds before retrying
                     }
                     retries--;
                     if (retries === 0) {
-                        console.error(`All retries failed for question ${i}. Skipping this question.`);
+                        logger(`All retries failed for question ${i}. Skipping this question.`);
                     } else {
-                        console.log(`Retrying question ${i} (${retries} retries left)...`);
+                        logger(`Retrying question ${i} (${retries} retries left)...`);
                     }
                 }
             }
@@ -74,10 +82,10 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
   
 
     writeStream.on('finish', () => {
-        console.log(`File '${newFileName}' has been created.`);
+        logger(`File '${newFileName}' has been created.`);
     });
     
       writeStream.on('error', (err) => {
-        console.error(err);
+        logger(err);
     });
 });
