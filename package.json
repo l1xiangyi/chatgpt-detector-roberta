@@ -1,0 +1,12 @@
+{
+  "name": "CSC3160-119010153-XiangyiLi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SLPcourse/CSC3160-119010153-XiangyiLi.git",
+  "author": "Xiangyi Li <venusli370306@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "openai": "^3.2.1"
+  },
+  "type": "module"
+}
