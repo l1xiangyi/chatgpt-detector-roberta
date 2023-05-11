@@ -24,9 +24,9 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
 
     const writeStream = fs.createWriteStream(newFileName);
   
-    // for (const line of lines) {
-    for (let i = 0; i < 2; i++) {
-        const line = lines[i];
+    for (const line of lines) {
+    // for (let i = 0; i < 2; i++) {
+    //     const line = lines[i];
         if (line) {
             const jsonData = JSON.parse(line);
     
