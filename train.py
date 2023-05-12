@@ -210,8 +210,29 @@ class ModelTrainer:
         print(test_report)
 
 
+import argparse
+
 if __name__ == "__main__":
-    trainer = ModelTrainer(
-        "dataset/train.json", "dataset/val.json", "dataset/test.json"
-    )
+    # Create an ArgumentParser object
+    parser = argparse.ArgumentParser()
+
+    # Define command-line arguments with fallback paths
+    parser.add_argument("--train_file", default="dataset/train.json",
+                        help="Path to the train file (default: dataset/train.json)")
+    parser.add_argument("--val_file", default="dataset/val.json",
+                        help="Path to the validation file (default: dataset/val.json)")
+    parser.add_argument("--test_file", default="dataset/test.json",
+                        help="Path to the test file (default: dataset/test.json)")
+
+    # Parse the command-line arguments
+    args = parser.parse_args()
+
+    # Use the command-line argument values or fallback paths
+    train_file = args.train_file if args.train_file else "dataset/train.json"
+    val_file = args.val_file if args.val_file else "dataset/val.json"
+    test_file = args.test_file if args.test_file else "dataset/test.json"
+
+    # Call the ModelTrainer with the file paths
+    trainer = ModelTrainer(train_file, val_file, test_file)
     trainer.run_training()
+

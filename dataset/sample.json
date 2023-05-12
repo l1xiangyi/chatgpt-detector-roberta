@@ -162,5 +162,19 @@
         "index": null,
         "source": "reddit_eli5",
         "chatgpt_answers_with_SDE_prompt": "When we have old blood cells in our body, they get broken down into useful parts by tiny parts in our bodies called \"enzymes\". These useful parts can then be reused and turned into other things our body might need, like new red blood cells or other parts of the body that need repair. It's like recycling!"
+    },
+    {
+        "question": "What is a hacker really doing ? I 've always wanted to know why hackers are jamming on their keyboards and what they can possibly be doing that requires such precision and speed . Please explain like I'm five.",
+        "human_answers": [
+            "> I 've always wanted to know why hackers are jamming on their keyboards In reality , this does n't happen . This is done in movies to make it look dramatic and exciting . Real computer hacking involves staring at a computer screen for hours of a time , searching a lot on Google , muttering \" hmmm \" and various expletives to oneself now and then , and stroking one 's hacker - beard while occasionally tapping on a few keys .",
+            "Computers are stupid , they do n't know what they are doing , they just do it . If you tell a computer to give a cake to every person that walks through the door , it will do . Hackers are the people that get extra cake by going around the building and back through the door . GLaDOS however , will give you no cake .",
+            "Hackers have a deep and complete understanding of a subject ( e.g. a machine or computer program ) . They change the behavior of the subject to something that was never intended or even thought it would be possible by the creator of the subject ."
+        ],
+        "chatgpt_answers": [
+            "A hacker is someone who uses their computer skills to try to gain access to systems or networks without permission. Hackers might do this for a variety of reasons, such as to steal information, to cause damage or disruption, or just for the challenge of it. \nHacking can involve a lot of typing and computer use, because hackers often use special software and programs to try to find weaknesses in a system or network. They might also use tools to try to guess passwords or to find ways to get around security measures. This can involve a lot of trial and error, which is why hackers might seem to be \"jamming on their keyboards\" as they try different approaches. \nOverall, hacking can be a complex and technical activity that requires a lot of knowledge and skill. Hackers might use a wide range of techniques and tools to try to achieve their goals, and they might spend a lot of time researching and testing different approaches to find a way in."
+        ],
+        "index": null,
+        "source": "reddit_eli5",
+        "chatgpt_answers_with_SDE_prompt": "Well, a hacker is like a really sneaky, clever person who uses their computer skills to figure out ways to get into computer systems and networks that they don't have permission to be in. They spend a lot of time learning about how computers work and how to find weaknesses in computer systems. And when they find one, they use their skills to try to break in. It's kind of like a puzzle or a game to them, and they feel smart and powerful when they succeed. But it"
     }
 ]
