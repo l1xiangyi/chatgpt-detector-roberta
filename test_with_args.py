@@ -42,10 +42,12 @@ def main():
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('text_path', help='Path to the text file to process')
     parser.add_argument('output_file', help='Path to the output file')
+    parser.add_argument('model_path', help='Path to the output file')
     args = parser.parse_args()
     
     # Load the fine-tuned model from the saved state dict
-    model_path = "best_model.pt"
+    # model_path = "best_model.pt"
+    model_path = args.model_path
     tokenizer, model = load_model(model_path)
 
     # Get the test sentence from the file
