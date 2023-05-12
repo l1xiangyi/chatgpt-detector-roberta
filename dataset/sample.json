@@ -176,5 +176,31 @@
         "index": null,
         "source": "reddit_eli5",
         "chatgpt_answers_with_SDE_prompt": "Well, a hacker is like a really sneaky, clever person who uses their computer skills to figure out ways to get into computer systems and networks that they don't have permission to be in. They spend a lot of time learning about how computers work and how to find weaknesses in computer systems. And when they find one, they use their skills to try to break in. It's kind of like a puzzle or a game to them, and they feel smart and powerful when they succeed. But it"
+    },
+    {
+        "question": "What would happen in the US if all of the homeless / impoverished people just disappeared ? Edit : Just to clarify , I 'm speaking in terms of the unemployed , as in people who have no source of income whatsoever Explain like I'm five.",
+        "human_answers": [
+            "A lot of those people have minimum wage jobs and just do n't make enough to really get by . The base of the economy - unskilled laborers , low - level service - would be removed , and everything would collapse like a house of cards . On a side note , as a college kid , at least I would n't have to worry about finding a job this summer .",
+            "Probably a lot of grief as those people still have friends and family and would want to know where they went . Also some economic loss because contrary to popular belief , many homeless people do actually work .",
+            "The next - lowest class left around would be the new ones considered impoverished . Everyone needs someone that they can look down upon ."
+        ],
+        "chatgpt_answers": [
+            "If all of the homeless and impoverished people in the United States suddenly disappeared, it would mean that there would no longer be any people in the country who are struggling to afford basic necessities like food, shelter, and clothing. This might seem like a good thing at first, but it would also mean that there would be a lot fewer people available to do important jobs that help keep the country running smoothly. For example, homeless and impoverished people often work as laborers, janitors, and other types of workers who help maintain buildings and infrastructure. Without these people, it would be much harder to keep everything clean and in good repair.\r\n\r\nAdditionally, the disappearance of all homeless and impoverished people would likely have a negative impact on the economy. Many businesses rely on the money that these people spend to stay afloat, and if there are no longer any homeless or impoverished people in the country, those businesses might struggle to survive. This could lead to more people losing their jobs and becoming homeless themselves, creating a vicious cycle.\r\n\r\nIn short, while it might seem like a good idea to make all of the homeless and impoverished people in the United States disappear, it would actually have a lot of negative consequences that would be felt throughout the country."
+        ],
+        "index": null,
+        "source": "reddit_eli5"
+    },
+    {
+        "question": "Why have split screen multiplier video games disappeared for the most part ? I understand there are exceptions ( Lots of Wii U games / Nazi Zombies for example ) but seriously , what gives ? Explain like I'm five.",
+        "human_answers": [
+            "Online multiplayer . It 's not worth development resources to put in a feature that will get very little use .",
+            "In addition to the rise of online multiplayer , there have been some other issues : * Game mechanics : Split - screens ca n't fairly go up against each other , which restricts them from free - for - all styled game types , and modern games have tended towards more complex multiplayer than was possible previously . This complexity is actively facilitated by the wall of separation that exists with online multiplayer . * Hardware limitations : The previous set of consoles were n't really up to the task in terms of processing power . Rendering two views at half the resolution is more intensive than one view at full , which meant many games would be pushing the limits . * Screen real estate : The switch from 4:3 to 16:9 has devastating consequences . The old horizontal split that worked on 4:3 is now too thin , and maintaining the 16:9 aspect is often accomplished with black boxing . As well , the limited resolution for a split screen often causes graphics to present badly , which negatively impacts the product .",
+            "The Internet gives . Back in the day , the only way you could play with a friend was if they were sitting next to you . No mas ."
+        ],
+        "chatgpt_answers": [
+            "Split screen multiplayer games were very popular in the past, especially on console systems like the Xbox and PlayStation. These types of games allowed players to play the same game together on the same screen, with each player using a different part of the screen to control their character.\r\n\r\nHowever, as time has passed and technology has improved, more and more people have started playing games online instead of in person with friends sitting next to them. Because of this, there has been less demand for split screen multiplayer games, and so fewer of them have been made.\r\n\r\nThere are still some split screen multiplayer games being made, but they are not as popular as they once were."
+        ],
+        "index": null,
+        "source": "reddit_eli5"
     }
 ]

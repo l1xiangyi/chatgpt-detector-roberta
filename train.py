@@ -9,7 +9,7 @@ from transformers import (
     RobertaTokenizer,
     get_linear_schedule_with_warmup,
 )
-
+import argparse
 
 # Definition of a custom dataset for the sequence classification task
 class CustomDataset(torch.utils.data.Dataset):
@@ -44,6 +44,7 @@ class ModelTrainer:
         num_epochs=10,
         learning_rate=2e-5,
         warmup_steps=0.1,
+        model_path="best_model.pt"
     ):
         # Load the training, validation, and test data from JSON files
         self.train_data = self.load_data(train_file)
@@ -64,6 +65,7 @@ class ModelTrainer:
             * self.num_epochs
             // self.batch_size,
         )
+        self.model_path = model_path
 
     # Load data from a JSON file and return a list of examples
     def load_data(self, filepath):
@@ -195,7 +197,7 @@ class ModelTrainer:
             val_report, val_accuracy = self.evaluate_model(val_loader)
             if val_accuracy > best_accuracy:
                 best_accuracy = val_accuracy
-                torch.save(self.model.state_dict(), "best_model.pt")
+                torch.save(self.model.state_dict(), self.model_path)
             # Print the epoch number, training loss, and validation accuracy
             print(
                 f"Epoch {epoch + 1}, train loss: {train_loss:.4f}, val accuracy: {val_accuracy:.4f}"
@@ -203,14 +205,12 @@ class ModelTrainer:
             # Print the classification report for the validation dataset
             print(val_report)
         # Load the best model based on the validation accuracy and evaluate it on the test dataset
-        self.model.load_state_dict(torch.load("best_model.pt"))
+        self.model.load_state_dict(torch.load(self.model_path))
         test_report, test_accuracy = self.evaluate_model(test_loader)
         # Print the best accuracy and the classification report for the test dataset
         print(f"Best accuracy: {test_accuracy:.4f}")
         print(test_report)
 
-
-import argparse
 
 if __name__ == "__main__":
     # Create an ArgumentParser object
@@ -223,6 +223,8 @@ if __name__ == "__main__":
                         help="Path to the validation file (default: dataset/val.json)")
     parser.add_argument("--test_file", default="dataset/test.json",
                         help="Path to the test file (default: dataset/test.json)")
+    parser.add_argument("--model_path", default="best_model.pt",
+                    help="Path to the test file (default: dataset/test.json)")
 
     # Parse the command-line arguments
     args = parser.parse_args()
@@ -231,8 +233,9 @@ if __name__ == "__main__":
     train_file = args.train_file if args.train_file else "dataset/train.json"
     val_file = args.val_file if args.val_file else "dataset/val.json"
     test_file = args.test_file if args.test_file else "dataset/test.json"
+    model_path = args.model_path if args.model_path else "best_model.pt"
 
     # Call the ModelTrainer with the file paths
-    trainer = ModelTrainer(train_file, val_file, test_file)
+    trainer = ModelTrainer(train_file, val_file, test_file, model_path=model_path)
     trainer.run_training()
 

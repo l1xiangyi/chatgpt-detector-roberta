@@ -53,9 +53,10 @@ def merge_data(input_file, output_file):
             sample = {"question": d["question"], "text": answer, "fake": 1}
             samples.append(sample)
         
-        answer = d["chatgpt_answers"]
-        sample = {"question": d["question"], "text": answer, "fake": 1}
-        samples.append(sample)
+        if "chatgpt_answers_with_SDE_prompt" in d:
+            answer = d["chatgpt_answers_with_SDE_prompt"]
+            sample = {"question": d["question"], "text": answer, "fake": 1}
+            samples.append(sample)
 
     # Save samples to output file
     with open(output_file, "w", encoding="utf-8") as f:
