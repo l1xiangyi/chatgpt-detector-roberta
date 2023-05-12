@@ -13,7 +13,7 @@ const prompts = {
 
 const fileName = "dataset/all.jsonl";
 // const newFileName = `dataset/all_expanded.jsonl_${Date.now().toString()}.jsonl`;
-const newFileName = `dataset/all_expanded.jsonl_from_394.jsonl`;
+const newFileName = `dataset/all_expanded.jsonl_from_1236.jsonl`;
 
 const timestamp = Date.now();
 const logFileName = `logs_${timestamp}.txt`;
@@ -38,7 +38,7 @@ fs.readFile(fileName, 'utf8', async (err, data) => {
     const writeStream = fs.createWriteStream(newFileName);
     // let i = 1;
     // for (const line of lines) {
-    for (let i = 499; i < lines.length; i++) {
+    for (let i = 1236; i < lines.length; i++) {
         const line = lines[i];
         if (line) {
             const jsonData = JSON.parse(line);
