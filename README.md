@@ -1,5 +1,7 @@
 # Detecting-Generated-Abstract
 
+Google Drive Link: https://drive.google.com/drive/folders/1KCYFfVvA9dAkhGZYSedBUifSaOM_hu64?usp=sharing
+
 Dr. Jiang Feng. 
 
 The Chinese University Of Hong Kong, Shenzhen
