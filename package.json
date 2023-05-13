@@ -6,6 +6,7 @@
   "author": "Xiangyi Li <venusli370306@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "firebase": "^9.22.0",
     "openai": "^3.2.1"
   },
   "type": "module"
